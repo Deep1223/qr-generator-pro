@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator</title>
+</head>
+<body>
+    <h1>Generate New Favicon</h1>
+    <canvas id="canvas" width="32" height="32" style="border: 1px solid #ccc; image-rendering: pixelated;"></canvas>
+    <br><br>
+    <button onclick="generateFavicon()">Generate Favicon</button>
+    <br><br>
+    <div id="downloads"></div>
+    
+    <script>
+        function generateFavicon() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, 32, 32);
+            
+            // Background
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 32, 32);
+            
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, 32, 32);
+            gradient.addColorStop(0, '#2563eb');
+            gradient.addColorStop(1, '#1d4ed8');
+            
+            // Draw QR code pattern
+            ctx.fillStyle = gradient;
+            
+            // Top Left Finder Pattern
+            ctx.fillRect(2, 2, 8, 8);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(4, 4, 4, 4);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(5, 5, 2, 2);
+            
+            // Top Right Finder Pattern
+            ctx.fillRect(22, 2, 8, 8);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(24, 4, 4, 4);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(25, 5, 2, 2);
+            
+            // Bottom Left Finder Pattern
+            ctx.fillRect(2, 22, 8, 8);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(4, 24, 4, 4);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(5, 25, 2, 2);
+            
+            // Add some data modules
+            ctx.fillStyle = gradient;
+            for(let i = 0; i < 8; i++) {
+                for(let j = 0; j < 8; j++) {
+                    if(Math.random() > 0.5) {
+                        ctx.fillRect(12 + i*2, 12 + j*2, 2, 2);
+                    }
+                }
+            }
+            
+            // Convert to different sizes
+            const sizes = [16, 32, 48];
+            const downloads = document.getElementById('downloads');
+            downloads.innerHTML = '';
+            
+            sizes.forEach(size => {
+                const newCanvas = document.createElement('canvas');
+                newCanvas.width = size;
+                newCanvas.height = size;
+                const newCtx = newCanvas.getContext('2d');
+                
+                // Draw the pattern scaled up
+                newCtx.fillStyle = '#ffffff';
+                newCtx.fillRect(0, 0, size, size);
+                
+                const scale = size / 32;
+                
+                // Top Left Finder Pattern
+                newCtx.fillStyle = gradient;
+                newCtx.fillRect(2*scale, 2*scale, 8*scale, 8*scale);
+                newCtx.fillStyle = '#ffffff';
+                newCtx.fillRect(4*scale, 4*scale, 4*scale, 4*scale);
+                newCtx.fillStyle = gradient;
+                newCtx.fillRect(5*scale, 5*scale, 2*scale, 2*scale);
+                
+                // Top Right Finder Pattern
+                newCtx.fillRect(22*scale, 2*scale, 8*scale, 8*scale);
+                newCtx.fillStyle = '#ffffff';
+                newCtx.fillRect(24*scale, 4*scale, 4*scale, 4*scale);
+                newCtx.fillStyle = gradient;
+                newCtx.fillRect(25*scale, 5*scale, 2*scale, 2*scale);
+                
+                // Bottom Left Finder Pattern
+                newCtx.fillRect(2*scale, 22*scale, 8*scale, 8*scale);
+                newCtx.fillStyle = '#ffffff';
+                newCtx.fillRect(4*scale, 24*scale, 4*scale, 4*scale);
+                newCtx.fillStyle = gradient;
+                newCtx.fillRect(5*scale, 25*scale, 2*scale, 2*scale);
+                
+                // Data modules
+                newCtx.fillStyle = gradient;
+                for(let i = 0; i < 8; i++) {
+                    for(let j = 0; j < 8; j++) {
+                        if(Math.random() > 0.5) {
+                            newCtx.fillRect((12 + i*2)*scale, (12 + j*2)*scale, 2*scale, 2*scale);
+                        }
+                    }
+                }
+                
+                const dataURL = newCanvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = `favicon-${size}x${size}.png`;
+                link.href = dataURL;
+                link.textContent = `Download ${size}x${size} PNG`;
+                link.style.display = 'block';
+                link.style.margin = '5px 0';
+                downloads.appendChild(link);
+            });
+        }
+        
+        // Auto-generate on load
+        window.onload = generateFavicon;
+    </script>
+</body>
+</html>

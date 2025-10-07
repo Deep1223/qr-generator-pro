@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logo Converter</title>
+</head>
+<body>
+    <h1>Convert SVG to PNG</h1>
+    <canvas id="canvas" width="512" height="512" style="border: 1px solid #ccc;"></canvas>
+    <br><br>
+    <button onclick="convertToPNG()">Convert to PNG</button>
+    <br><br>
+    <img id="result" style="border: 1px solid #ccc;">
+    
+    <script>
+        function convertToPNG() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Create QR code pattern
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 512, 512);
+            
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, 512, 512);
+            gradient.addColorStop(0, '#2563eb');
+            gradient.addColorStop(1, '#1d4ed8');
+            
+            // Draw QR code pattern
+            ctx.fillStyle = gradient;
+            
+            // Top Left Finder Pattern
+            ctx.fillRect(64, 64, 80, 80);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(80, 80, 48, 48);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(96, 96, 16, 16);
+            
+            // Top Right Finder Pattern
+            ctx.fillRect(368, 64, 80, 80);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(384, 80, 48, 48);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(400, 96, 16, 16);
+            
+            // Bottom Left Finder Pattern
+            ctx.fillRect(64, 368, 80, 80);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(80, 384, 48, 48);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(96, 400, 16, 16);
+            
+            // Add some data modules
+            for(let i = 0; i < 20; i++) {
+                for(let j = 0; j < 20; j++) {
+                    if(Math.random() > 0.5) {
+                        ctx.fillRect(160 + i*16, 160 + j*16, 16, 16);
+                    }
+                }
+            }
+            
+            // Add text
+            ctx.fillStyle = gradient;
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('QR Generator Pro', 256, 480);
+            
+            // Convert to PNG
+            const dataURL = canvas.toDataURL('image/png');
+            document.getElementById('result').src = dataURL;
+            
+            // Download link
+            const link = document.createElement('a');
+            link.download = 'qr-logo-512.png';
+            link.href = dataURL;
+            link.textContent = 'Download 512x512 PNG';
+            document.body.appendChild(link);
+        }
+    </script>
+</body>
+</html>

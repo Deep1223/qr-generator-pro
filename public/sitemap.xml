@@ -3,63 +3,46 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  
-  <!-- Homepage -->
   <url>
     <loc>https://qr-generator-pro.netlify.app/</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- QR Code Types Pages (if you add them later) -->
   <url>
-    <loc>https://qr-generator-pro.netlify.app/url-qr</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://qr-generator-pro.netlify.app/#url</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://qr-generator-pro.netlify.app/wifi-qr</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://qr-generator-pro.netlify.app/#wifi</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://qr-generator-pro.netlify.app/sms-qr</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://qr-generator-pro.netlify.app/#sms</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://qr-generator-pro.netlify.app/vcard-qr</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://qr-generator-pro.netlify.app/#vcard</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://qr-generator-pro.netlify.app/email-qr</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://qr-generator-pro.netlify.app/#email</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
   <url>
-    <loc>https://qr-generator-pro.netlify.app/phone-qr</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://qr-generator-pro.netlify.app/#phone</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <url>
-    <loc>https://qr-generator-pro.netlify.app/text-qr</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
 </urlset>
