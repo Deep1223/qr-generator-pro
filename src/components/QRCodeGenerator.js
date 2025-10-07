@@ -6,7 +6,6 @@ import CustomizationPanel from './customization/CustomizationPanel';
 import QRPreview from './QRPreview';
 import GenerateButton from './GenerateButton';
 import QRHistory from './QRHistory';
-import QRDebug from './QRDebug';
 import QRCodeScanner from './QRCodeScanner';
 import ScanResult from './ScanResult';
 import { useQRCode } from '../hooks/useQRCode';

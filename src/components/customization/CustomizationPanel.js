@@ -1,5 +1,5 @@
 import React from 'react';
-import { Palette, Upload } from 'lucide-react';
+import { Palette } from 'lucide-react';
 import ColorPresets from './ColorPresets';
 import ColorCustomization from './ColorCustomization';
 import SizeAndLogo from './SizeAndLogo';

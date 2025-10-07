@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { generateQRCode } from '../utils/qrGenerator';
-import { generateSimpleQRCode } from '../utils/simpleQRGenerator';
 import { generateProperQRCode, generateStyledQRCode } from '../utils/properQRGenerator';
 import { generateSimpleQR, generateQRToCanvas } from '../utils/simpleQRTest';
 

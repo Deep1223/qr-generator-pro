@@ -42,7 +42,7 @@ const QRHistory = ({ qrCode, qrData, onQRSelect, trigger }) => {
         return newHistory;
       });
     }
-  }, [trigger]);
+  }, [trigger, qrCode, qrData]);
 
   const getQRType = (data) => {
     if (data.startsWith('http')) return 'URL';

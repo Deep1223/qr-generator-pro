@@ -37,7 +37,7 @@ export const detectContentType = (input) => {
   }
   
   // Check for phone number (basic pattern)
-  if (/^[\+]?[\d\s\-\(\)]{10,}$/.test(trimmedInput.replace(/\s/g, ''))) {
+  if (/^[+]?[\d\s\-()]{10,}$/.test(trimmedInput.replace(/\s/g, ''))) {
     return 'phone';
   }
   

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import jsqr from 'jsqr';
 import { Camera, RefreshCcw, StopCircle, AlertTriangle, Upload } from 'lucide-react';
 
@@ -10,6 +10,38 @@ const QRCodeScanner = ({ onResult, onClose }) => {
   const [error, setError] = useState('');
   const [isActive, setIsActive] = useState(false);
   const fileInputRef = useRef(null);
+
+  const stopCamera = useCallback(() => {
+    if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach(track => track.stop());
+      streamRef.current = null;
+    }
+    setIsActive(false);
+  }, []);
+
+  const scanFrame = useCallback(() => {
+    animationRef.current = requestAnimationFrame(scanFrame);
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
+    if (!video || !canvas) return;
+
+    const width = video.videoWidth;
+    const height = video.videoHeight;
+    if (!width || !height) return;
+
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0, width, height);
+    const imageData = ctx.getImageData(0, 0, width, height);
+    const code = jsqr(imageData.data, imageData.width, imageData.height);
+    if (code && code.data) {
+      stopCamera();
+      onResult && onResult(code.data);
+      onClose && onClose();
+    }
+  }, [onResult, onClose, stopCamera]);
 
   useEffect(() => {
     const startCamera = async () => {
@@ -39,39 +71,8 @@ const QRCodeScanner = ({ onResult, onClose }) => {
 
     startCamera();
     return () => stopCamera();
-  }, []);
+  }, [scanFrame, stopCamera]);
 
-  const stopCamera = () => {
-    if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach(track => track.stop());
-      streamRef.current = null;
-    }
-    setIsActive(false);
-  };
-
-  const scanFrame = () => {
-    animationRef.current = requestAnimationFrame(scanFrame);
-    const video = videoRef.current;
-    const canvas = canvasRef.current;
-    if (!video || !canvas) return;
-
-    const width = video.videoWidth;
-    const height = video.videoHeight;
-    if (!width || !height) return;
-
-    canvas.width = width;
-    canvas.height = height;
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0, width, height);
-    const imageData = ctx.getImageData(0, 0, width, height);
-    const code = jsqr(imageData.data, imageData.width, imageData.height);
-    if (code && code.data) {
-      stopCamera();
-      onResult && onResult(code.data);
-      onClose && onClose();
-    }
-  };
 
   const handleRetry = () => {
     stopCamera();
