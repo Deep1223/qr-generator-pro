@@ -1,5 +1,10 @@
 # QR Generator Pro - Free Online QR Code Generator
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://app.netlify.com/sites/qr-generator-pro/deploys)
+[![GitHub Pages](https://github.com/Deep1223/qr-generator-pro/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)](https://github.com/Deep1223/qr-generator-pro/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/React-19.1.1-blue.svg)](https://reactjs.org/)
+
 A professional, SEO-optimized QR Code Generator built with React, featuring advanced customization options and designed for high Google rankings. Generate QR codes for URLs, WiFi, SMS, vCard, Email, Phone, and Text with custom colors, logos, and styling.
 
 ## 🌟 SEO Optimized Features
@@ -12,11 +17,17 @@ A professional, SEO-optimized QR Code Generator built with React, featuring adva
 
 ## 🚀 Live Demo
 
-Deploy this project to Netlify for instant SEO benefits:
-- **Netlify URL**: `https://qr-generator-pro.netlify.app/`
-- **Custom Domain**: Ready for your own domain
-- **SSL Certificate**: Automatic HTTPS
-- **CDN**: Global content delivery
+### 🌐 Try It Now
+- **🚀 Netlify (Primary)**: [https://qr-generator-pro.netlify.app/](https://qr-generator-pro.netlify.app/)
+- **📱 GitHub Pages**: [https://deep1223.github.io/qr-generator-pro/](https://deep1223.github.io/qr-generator-pro/)
+
+### ✨ Features
+- **100% Free** - No registration required
+- **Multiple QR Types** - URL, WiFi, SMS, vCard, Email, Phone, Text
+- **Custom Styling** - Colors, gradients, logos, sizes
+- **High Quality** - Download in PNG format
+- **Mobile Friendly** - Works on all devices
+- **SEO Optimized** - Built for Google ranking
 
 ## 🚀 Features
 

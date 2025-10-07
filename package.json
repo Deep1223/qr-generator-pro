@@ -1,7 +1,8 @@
 {
-  "name": "qr-generater",
-  "version": "0.1.0",
-  "private": true,
+  "name": "qr-generator-pro",
+  "version": "1.0.0",
+  "private": false,
+  "homepage": "https://deep1223.github.io/qr-generator-pro",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.0",
